@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Route:</strong>
+  <%= @access.route %>
+</p>
+
+<p>
+  <strong>Station:</strong>
+  <%= @access.station %>
+</p>
+
+<p>
+  <strong>Distance:</strong>
+  <%= @access.distance %>
+</p>
+
+<%= link_to 'Edit', edit_access_path(@access) %> |
+<%= link_to 'Back', accesses_path %>
