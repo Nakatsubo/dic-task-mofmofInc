@@ -7,10 +7,14 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    @access = Access.all.find_by(property_id: @property.id)
   end
 
   def new
     @property = Property.new
+    @property.accesses.build
+    # 親モデル.子モデル.build
+    # => 外部キーに値が入った状態でインスタンスが生成できる
   end
 
   def edit
@@ -26,7 +30,7 @@ class PropertiesController < ApplicationController
   end
 
   def update
-    if @property.update(property_params)
+    if @property.update(update_property_params)
       redirect_to property_path(@property.id), notice: '物件を更新しました'
     else
       render :edit
@@ -45,7 +49,13 @@ class PropertiesController < ApplicationController
   end
 
   def property_params
-    params.require(:property).permit(:name, :price, :address, :year, :note)
+    params.require(:property).permit(:name, :price, :address, :year, :note, accesses_attributes: [:route1, :station1, :distance1, :route2, :station2, :distance2])
+    # => 外部キーの値を含めることができる
+  end
+
+  def update_property_params
+    params.require(:property).permit(:name, :price, :address, :year, :note, accesses_attributes: [:route1, :station1, :distance1, :route2, :station2, :distance2, :_destroy, :id])
+    # => 外部キーの値を含めることができる
   end
 
 end

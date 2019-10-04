@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191004063831) do
+ActiveRecord::Schema.define(version: 20191004114837) do
 
   create_table "accesses", force: :cascade do |t|
     t.string  "route1",      null: false
     t.string  "station1",    null: false
     t.integer "distance1",   null: false
-    t.string  "route2",      null: false
-    t.string  "station2",    null: false
-    t.integer "distance2",   null: false
+    t.string  "route2"
+    t.string  "station2"
+    t.integer "distance2"
     t.integer "property_id"
     t.index ["property_id"], name: "index_accesses_on_property_id"
   end

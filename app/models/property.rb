@@ -8,6 +8,7 @@ class Property < ApplicationRecord
   validates :note, presence: true
 
   # association => appoint table name
-  #has_many :accesses, dependent: :destroy
+  has_many :accesses, dependent: :destroy
+  accepts_nested_attributes_for :accesses, allow_destroy: true
 
 end
