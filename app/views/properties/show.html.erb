@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h2>物件詳細</h2>
 <p>
   <strong>物件名:</strong>
   <%= @property.name %>
@@ -26,7 +25,9 @@
   <%= @property.note %>
 </p>
 
-<h2>最寄り駅1</h2>
+<hr>
+
+<h2 style="font-size: 14px;">最寄り駅1</h2>
 <p>
   <strong>路線名:</strong>
   <%= @access.route1 %>
@@ -44,7 +45,7 @@
 
 <%- if @access.route2 && @access.station2 && @access.distance2 %>
 
-  <h2>最寄り駅2</h2>
+  <h2 style="font-size: 14px;">最寄り駅2</h2>
   <p>
     <strong>路線名:</strong>
     <%= @access.route2 %>

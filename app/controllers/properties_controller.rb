@@ -49,12 +49,12 @@ class PropertiesController < ApplicationController
   end
 
   def property_params
-    params.require(:property).permit(:name, :price, :address, :year, :note, accesses_attributes: [:route1, :station1, :distance1, :route2, :station2, :distance2])
+    params.require(:property).permit(:name, :price, :address, :year, :note, accesses_attributes: %i(route1 station1 distance1 route2 station2 distance2))
     # => 外部キーの値を含めることができる
   end
 
   def update_property_params
-    params.require(:property).permit(:name, :price, :address, :year, :note, accesses_attributes: [:route1, :station1, :distance1, :route2, :station2, :distance2, :_destroy, :id])
+    params.require(:property).permit(:name, :price, :address, :year, :note, accesses_attributes: %i(route1 station1 distance1 route2 station2 distance2 _destroy id))
     # => 外部キーの値を含めることができる
   end
 
