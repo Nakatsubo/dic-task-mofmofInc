@@ -10,24 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191003083050) do
+ActiveRecord::Schema.define(version: 20191004011758) do
 
   create_table "accesses", force: :cascade do |t|
-    t.string   "route"
-    t.string   "station"
-    t.integer  "distance"
+    t.string   "route",       null: false
+    t.string   "station",     null: false
+    t.integer  "distance",    null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "property_id"
+    t.integer  "property_id", null: false
     t.index ["property_id"], name: "index_accesses_on_property_id"
   end
 
   create_table "properties", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "price"
-    t.string   "address"
-    t.integer  "year"
-    t.text     "note"
+    t.string   "name",       null: false
+    t.integer  "price",      null: false
+    t.string   "address",    null: false
+    t.integer  "year",       null: false
+    t.text     "note",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
