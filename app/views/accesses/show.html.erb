@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Route:</strong>
+  <strong>路線名:</strong>
   <%= @access.route %>
 </p>
 
 <p>
-  <strong>Station:</strong>
+  <strong>駅名:</strong>
   <%= @access.station %>
 </p>
 
 <p>
-  <strong>Distance:</strong>
+  <strong>徒歩分数:</strong>
   <%= @access.distance %>
 </p>
 
-<%= link_to 'Edit', edit_access_path(@access) %> |
-<%= link_to 'Back', accesses_path %>
+<%= link_to '編集', edit_access_path(@access) %> |
+<%= link_to '戻る', accesses_path %>

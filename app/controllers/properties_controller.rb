@@ -1,7 +1,6 @@
 class PropertiesController < ApplicationController
 
   before_action :set_property, only: [:show, :edit, :update, :destroy]
-  before_action :property_params, only: [:create, :update]
 
   def index
     @properties = Property.all
