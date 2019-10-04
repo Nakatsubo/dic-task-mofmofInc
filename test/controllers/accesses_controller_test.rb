@@ -17,7 +17,7 @@ class AccessesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create access" do
     assert_difference('Access.count') do
-      post accesses_url, params: { access: { distance: @access.distance, route: @access.route, station: @access.station } }
+      post accesses_url, params: { access: { distance1: @access.distance1, distance2: @access.distance2, route1: @access.route1, route2: @access.route2, station1: @access.station1, station2: @access.station2 } }
     end
 
     assert_redirected_to access_url(Access.last)
@@ -34,7 +34,7 @@ class AccessesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update access" do
-    patch access_url(@access), params: { access: { distance: @access.distance, route: @access.route, station: @access.station } }
+    patch access_url(@access), params: { access: { distance1: @access.distance1, distance2: @access.distance2, route1: @access.route1, route2: @access.route2, station1: @access.station1, station2: @access.station2 } }
     assert_redirected_to access_url(@access)
   end
 

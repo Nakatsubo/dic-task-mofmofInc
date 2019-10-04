@@ -19,7 +19,7 @@ class AccessesController < ApplicationController
   def create
     @access = Access.new(access_params)
     if @access.save
-      redirect_to access_path(@access.id), notice: 'アクセスを作成しました'
+      redirect_to @access, notice: '最寄り駅を作成しました'
     else
       render :new
     end
@@ -27,7 +27,7 @@ class AccessesController < ApplicationController
 
   def update
     if @access.update(access_params)
-      redirect_to @access, notice: 'アクセスを更新しました'
+      redirect_to @access, notice: '最寄り駅を更新しました'
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class AccessesController < ApplicationController
 
   def destroy
     @access.destroy
-    redirect_to accesses_url, notice: 'アクセスを削除しました'
+    redirect_to accesses_url, notice: '最寄り駅を削除しました'
   end
 
   private
@@ -45,7 +45,7 @@ class AccessesController < ApplicationController
   end
 
   def access_params
-    params.require(:access).permit(:route, :station, :distance)
+    params.require(:access).permit(:route1, :station1, :distance1, :route2, :station2, :distance2)
   end
 
 end
