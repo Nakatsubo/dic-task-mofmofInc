@@ -40,24 +40,32 @@
 
   <%= f.fields_for :accesses do |a| %>
 
-    <h2 style="font-size: 14px;">最寄り駅1</h2>
+    <div class="name">
+      <h2 style="font-size: 14px;">
+        最寄り駅<%= a.options[:child_index] + 1 %>
+      </h2>
+    </div>
 
     <div class="field">
       <%= a.label :"路線名" %>
-      <%= a.text_field :route1 %>
+      <%= a.text_field :route %>
     </div>
 
     <div class="field">
       <%= a.label :"駅名" %>
-      <%= a.text_field :station1 %>
+      <%= a.text_field :station %>
     </div>
 
     <div class="field">
       <%= a.label :"徒歩分数" %>
-      <%= a.number_field :distance1 %>分
+      <%= a.number_field :distance %>分
     </div>
 
+    <%= a.hidden_field :id %>
+
+  <% end %>
+
   <div class="actions">
-    <%= f.submit "更新する" %>
+    <%= f.submit "登録する" %>
   </div>
 <% end %>

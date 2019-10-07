@@ -1,9 +1,9 @@
 class Access < ApplicationRecord
 
   #validation
-  validates :route1, presence: true
-  validates :station1, presence: true
-  validates :distance1, presence: true
+  #validates :route, presence: true
+  #validates :station, presence: true
+  #validates :distance, presence: true
 
   # association => appoint table name
   belongs_to :property, optional: true

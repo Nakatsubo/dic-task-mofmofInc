@@ -7,17 +7,20 @@ class PropertiesController < ApplicationController
   end
 
   def show
-    @access = Access.all.find_by(property_id: @property.id)
+    @accesses = Access.all.where(property_id: @property.id)
   end
 
   def new
     @property = Property.new
-    @property.accesses.build
+    #@property.accesses.build
     # 親モデル.子モデル.build
     # => 外部キーに値が入った状態でインスタンスが生成できる
+    set_frequency.times {@property.accesses.build}
   end
 
   def edit
+    t = set_frequency - @property.accesses.length
+    t.times {@property.accesses.build}
   end
 
   def create
@@ -49,13 +52,17 @@ class PropertiesController < ApplicationController
   end
 
   def property_params
-    params.require(:property).permit(:name, :price, :address, :year, :note, accesses_attributes: %i(route1 station1 distance1 route2 station2 distance2))
+    params.require(:property).permit(:name, :price, :address, :year, :note, accesses_attributes: %i(route station distance id))
     # => 外部キーの値を含めることができる
   end
 
   def update_property_params
-    params.require(:property).permit(:name, :price, :address, :year, :note, accesses_attributes: %i(route1 station1 distance1 route2 station2 distance2 _destroy id))
+    params.require(:property).permit(:name, :price, :address, :year, :note, accesses_attributes: %i(route station distance _destroy id))
     # => 外部キーの値を含めることができる
+  end
+
+  def set_frequency
+    @frequency = 2
   end
 
 end
