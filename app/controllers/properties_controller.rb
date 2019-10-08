@@ -19,8 +19,8 @@ class PropertiesController < ApplicationController
   end
 
   def edit
-    t = set_frequency - @property.accesses.length
-    t.times {@property.accesses.build}
+    #t = set_frequency - @property.accesses.length
+    #t.times {@property.accesses.build}
   end
 
   def create
